@@ -7,6 +7,13 @@ import static org.junit.Assert.assertThat;
 
 public class BinarySearchTest {
 
+    /*
+        test_v3
+        implementacja przechowuje lewy oraz prawy indeks w zmiennych typu int o dodatnik zakresie 0x7FFFFFFF każdy
+        jeżeli tabelica wejściowa będzia miała maksymalną długość 0x7FFFFFFF, to w instrukcji dla "prawej połówki"
+        center = (start + end) / 2; nastąpi przekręcenie licznika a w konsekwencji błędne działanie programu.
+     */
+
     @Test
     public void sequenceReverse() {
         int key = 10;
