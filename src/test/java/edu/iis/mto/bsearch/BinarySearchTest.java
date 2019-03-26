@@ -58,6 +58,11 @@ public class BinarySearchTest {
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndNotContainsItem() {
+        int searchKey = 10;
+        int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
+        SearchResult result = BinarySearch.search(searchKey + 4, array);
 
+        assertTrue(array.length > 1);
+        assertFalse(result.isFound());
     }
 }
