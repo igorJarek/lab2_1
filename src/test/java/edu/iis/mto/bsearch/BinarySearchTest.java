@@ -2,7 +2,6 @@ package edu.iis.mto.bsearch;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
@@ -35,8 +34,8 @@ public class BinarySearchTest {
         int[] array = {key};
         SearchResult result = BinarySearch.search(key, array);
 
-        assertEquals(1, array.length);
-        assertTrue(result.isFound());
+        assertThat(array.length, is(equalTo(1)));
+        assertThat(result.isFound(), is(equalTo(true)));
     }
 
     @Test
@@ -46,8 +45,8 @@ public class BinarySearchTest {
         int[] array = {insideKey};
         SearchResult result = BinarySearch.search(searchKey, array);
 
-        assertEquals(1, array.length);
-        assertFalse(result.isFound());
+        assertThat(array.length, is(equalTo(1)));
+        assertThat(result.isFound(), is(equalTo(false)));
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtFirstPos() {
@@ -55,9 +54,9 @@ public class BinarySearchTest {
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey, array);
 
-        assertTrue(array.length > 1);
-        assertTrue(result.isFound());
-        assertEquals(0, result.getPosition());
+        assertThat(array.length > 1, is(equalTo(true)));
+        assertThat(result.isFound(), is(equalTo(true)));
+        assertThat(result.getPosition(), is(equalTo(0)));
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtLastPos() {
@@ -65,9 +64,9 @@ public class BinarySearchTest {
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey + 3, array);
 
-        assertTrue(array.length > 1);
-        assertTrue(result.isFound());
-        assertEquals(array.length - 1, result.getPosition());
+        assertThat(array.length > 1, is(equalTo(true)));
+        assertThat(result.isFound(), is(equalTo(true)));
+        assertThat(result.getPosition(), is(equalTo(array.length - 1)));
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtMiddlePos() {
@@ -75,9 +74,9 @@ public class BinarySearchTest {
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3, searchKey + 4};
         SearchResult result = BinarySearch.search(searchKey + 2, array);
 
-        assertTrue(array.length > 1);
-        assertTrue(result.isFound());
-        assertEquals(array.length / 2, result.getPosition());
+        assertThat(array.length > 1, is(equalTo(true)));
+        assertThat(result.isFound(), is(equalTo(true)));
+        assertThat(result.getPosition(), is(equalTo(array.length / 2)));
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndNotContainsItem() {
@@ -85,7 +84,7 @@ public class BinarySearchTest {
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey + 4, array);
 
-        assertTrue(array.length > 1);
-        assertFalse(result.isFound());
+        assertThat(array.length > 1, is(equalTo(true)));
+        assertThat(result.isFound(), is(equalTo(false)));
     }
 }
