@@ -3,8 +3,18 @@ package edu.iis.mto.bsearch;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertThat;
 
 public class BinarySearchTest {
+
+    @Test
+    public void sequenceReverse() {
+        int key = 10;
+        int[] array = {key, key - 1, key - 2, key - 3};
+        SearchResult result = BinarySearch.search(key, array);
+        assertThat(result.isFound(), is(equalTo(false)));
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void sequenceNull() {
