@@ -6,6 +6,13 @@ import static org.junit.Assert.*;
 
 public class BinarySearchTest {
 
+    @Test(expected = IllegalArgumentException.class)
+    public void sequenceHasZeroLength() {
+        int key = 10;
+        int[] array = {};
+        SearchResult result = BinarySearch.search(key, array);
+    }
+
     @Test
     public void sequenceHasOneLengthAndContainsItem() {
         int key = 10;
