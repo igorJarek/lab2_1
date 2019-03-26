@@ -49,7 +49,8 @@ public class BinarySearchTest {
         assertThat(result.isFound(), is(equalTo(false)));
     }
 
-    @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtFirstPos() {
+    @Test
+    public void sequenceHasMoreThanOneLengthAndContainsItemAtFirstPos() {
         int searchKey = 10;
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey, array);
@@ -59,7 +60,8 @@ public class BinarySearchTest {
         assertThat(result.getPosition(), is(equalTo(0)));
     }
 
-    @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtLastPos() {
+    @Test
+    public void sequenceHasMoreThanOneLengthAndContainsItemAtLastPos() {
         int searchKey = 10;
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey + 3, array);
@@ -69,7 +71,8 @@ public class BinarySearchTest {
         assertThat(result.getPosition(), is(equalTo(array.length - 1)));
     }
 
-    @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtMiddlePos() {
+    @Test
+    public void sequenceHasMoreThanOneLengthAndContainsItemAtMiddlePos() {
         int searchKey = 10;
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3, searchKey + 4};
         SearchResult result = BinarySearch.search(searchKey + 2, array);
@@ -79,7 +82,8 @@ public class BinarySearchTest {
         assertThat(result.getPosition(), is(equalTo(array.length / 2)));
     }
 
-    @Test public void sequenceHasMoreThanOneLengthAndNotContainsItem() {
+    @Test
+    public void sequenceHasMoreThanOneLengthAndNotContainsItem() {
         int searchKey = 10;
         int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
         SearchResult result = BinarySearch.search(searchKey + 4, array);
