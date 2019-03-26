@@ -16,8 +16,15 @@ public class BinarySearchTest {
         assertTrue(result.isFound());
     }
 
-    @Test public void sequenceHasOneLengthAndNotContainsItem() {
+    @Test
+    public void sequenceHasOneLengthAndNotContainsItem() {
+        int searchKey = 10;
+        int insideKey = 8;
+        int[] array = {insideKey};
+        SearchResult result = BinarySearch.search(searchKey, array);
 
+        assertEquals(1, array.length);
+        assertFalse(result.isFound());
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtFirstPos() {
