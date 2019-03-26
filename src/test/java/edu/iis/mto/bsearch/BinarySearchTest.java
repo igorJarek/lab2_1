@@ -28,7 +28,13 @@ public class BinarySearchTest {
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtFirstPos() {
+        int searchKey = 10;
+        int[] array = {searchKey, searchKey + 1, searchKey + 2, searchKey + 3};
+        SearchResult result = BinarySearch.search(searchKey, array);
 
+        assertTrue(array.length > 1);
+        assertTrue(result.isFound());
+        assertEquals(0, result.getPosition());
     }
 
     @Test public void sequenceHasMoreThanOneLengthAndContainsItemAtLastPos() {
