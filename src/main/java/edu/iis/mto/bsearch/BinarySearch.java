@@ -24,6 +24,9 @@ public class BinarySearch {
      */
     public static SearchResult search(int key, int[] seq) {
 
+        if (seq == null)
+            throw new IllegalArgumentException("Input array is null");
+
         if (seq.length == 0)
             throw new IllegalArgumentException("Input array has zero length");
 
